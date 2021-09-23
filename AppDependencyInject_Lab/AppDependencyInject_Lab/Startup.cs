@@ -43,15 +43,15 @@ namespace AppDependencyInject_Lab
             #endregion
 
             #region Insérez les références à l'ensemble des services ThirdParty ici Version Séparément
-            services.Configure<WazeForecastSettings>(Configuration.GetSection("WazeForecast"));
-            services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
-            services.Configure<TwilioSettings>(Configuration.GetSection("Twilio"));
+            //services.Configure<WazeForecastSettings>(Configuration.GetSection("WazeForecast"));
+            //services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
+            //services.Configure<TwilioSettings>(Configuration.GetSection("Twilio"));
 
 
             #endregion
 
             #region Insérez les références à l'ensemble des services Thirdparty ici Version Groupés
-
+            services.AddAppSettingsConfig(Configuration).AddAllServices();
             #endregion
 
             #region Injection des trois version du Middleware
