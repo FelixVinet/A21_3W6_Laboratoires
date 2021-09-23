@@ -55,6 +55,9 @@ namespace AppDependencyInject_Lab
             #endregion
 
             #region Injection des trois version du Middleware
+            services.AddTransient<TransientService>();
+            services.AddScoped<ScopedService>();
+            services.AddSingleton<SingletonService>();
 
             #endregion
 
@@ -81,10 +84,10 @@ namespace AppDependencyInject_Lab
 
       app.UseAuthorization();
 
-      // Ajoutez la configuration du Middleware ICI
-      
+            // Ajoutez la configuration du Middleware ICI
+            app.UseMiddleware<CustomMiddleware>();
 
-      app.UseEndpoints(endpoints =>
+            app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllerRoute(
                   name: "default",

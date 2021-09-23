@@ -1,5 +1,35 @@
-﻿  @{
+﻿@model List<String>
+@{
     ViewData["Title"] = "Index";
-  }
+}
 
-  <h1>Life Time  Services</h1>
+<h1>Life Time  Services</h1>
+@{
+    var count = 0;
+}
+@foreach (string mess in Model)
+{
+    if (count == 0)
+    {
+        <div style="font-size:20px;padding-top:20px;">
+            Transient Lifetime : différent à chaque requête
+        </div>
+    }
+    if (count == 2)
+    {
+        <div style="font-size:20px;padding-top:20px;">
+            Scoped Lifetime à chaque refresh
+        </div>
+    }
+    if (count == 4)
+    {
+        <div style="font-size:20px;padding-top:20px;">
+            Singleton Lifetime à chaque fois qu'on ouvre l'application
+        </div>
+    }
+    count++;
+    <div>
+        @mess
+    </div>
+}
+
