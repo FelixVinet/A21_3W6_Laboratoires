@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace AppDependencyInject_Lab.Service
 {
-  public class ZombieForecaster
-  {
-    public NbrZombiesResult GetVillagePrediction()
+    public class ZombieForecaster : IZombieForecaster
     {
-      
-      return new NbrZombiesResult
-      {
-        NbrZombiesCondition = NbrZombiesCondition.EnHausse
-      };
+        public NbrZombiesResult GetVillagePrediction()
+        {
+
+            return new NbrZombiesResult
+            {
+                NbrZombiesCondition = NbrZombiesCondition.EnHausse
+            };
+        }
     }
-  }
 
 }
